@@ -2,6 +2,7 @@
   "name": "cryptokoon",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://shawnkoon.github.io/cryptokoon",
   "dependencies": {
     "@types/jest": "24.0.11",
     "@types/node": "11.13.2",
@@ -16,6 +17,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:ci": "npm test -- --env=jsdom --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint \"src/**/*.{js,jsx,ts,tsx,json}\""
   },
