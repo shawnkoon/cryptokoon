@@ -1,8 +1,11 @@
+// Lib
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+
+// App
+import './styles/bootstrap4-neon-glow.css';
+import App from './views/App';
+import * as serviceWorker from './misc/serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
