@@ -2,6 +2,7 @@
 import * as React from 'react';
 import Typist from 'react-typist';
 import 'styles/Typist.css';
+import { Link } from 'react-router-dom';
 
 // App
 import logo from 'images/logo.png';
@@ -45,7 +46,9 @@ export class Header extends React.PureComponent<HeaderProps, HeaderStates> {
 
     return (
       <div className="header">
-        <img src={logo} alt="cryptokoon-logo" className="logo" />
+        <Link replace to="/">
+          <img src={logo} alt="cryptokoon-logo" className="logo" />
+        </Link>
         <Typist
           key={messageIndex}
           avgTypingDelay={this.props.textDelay}

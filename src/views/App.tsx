@@ -5,8 +5,9 @@ import * as React from 'react';
 import 'styles/App.scss';
 import { Header } from './Header';
 import { NavTab } from './NavTab';
+import { Container } from './Container';
 
-class App extends React.Component<{}, {}> {
+class App extends React.Component {
   render() {
     return (
       <div className="container-fluid">
@@ -19,6 +20,7 @@ class App extends React.Component<{}, {}> {
         </a>
         <Header textDelay={200} />
         <NavTab />
+        <Container />
       </div>
     );
   }

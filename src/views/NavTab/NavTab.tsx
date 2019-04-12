@@ -1,5 +1,6 @@
 // Lib
 import * as React from 'react';
+import { NavLink, Link } from 'react-router-dom';
 
 // App
 import 'styles/NavTab.scss';
@@ -9,19 +10,19 @@ export class NavTab extends React.PureComponent {
     return (
       <ul className="nav nav-tabs">
         <li className="nav-item">
-          <a className="nav-link active" href="#!">
+          <NavLink replace className="nav-link" to="/hash" activeClassName="active">
             Hash
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#!">
+          <NavLink replace className="nav-link" to="/encryption" activeClassName="active">
             Encryption
-          </a>
+          </NavLink>
         </li>
         <li className="nav-item">
-          <a className="nav-link" href="#!">
+          <NavLink replace className="nav-link" to="/decryption" activeClassName="active">
             Decryption
-          </a>
+          </NavLink>
         </li>
       </ul>
     );
