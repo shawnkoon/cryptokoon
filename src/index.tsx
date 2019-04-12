@@ -9,7 +9,8 @@ import App from './views/App';
 import * as serviceWorker from './misc/serviceWorker';
 
 ReactDOM.render(
-  <BrowserRouter>
+  // https://github.com/facebook/create-react-app/issues/1765
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <App />
   </BrowserRouter>,
   document.getElementById('root'),
