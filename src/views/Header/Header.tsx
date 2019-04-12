@@ -1,7 +1,12 @@
 // Lib
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import Typist from 'react-typist';
 import 'styles/Typist.css';
+import { Link } from 'react-router-dom';
+
+// App
+import logo from 'images/logo.png';
+import 'styles/Header.scss';
 
 interface HeaderProps {
   readonly textDelay: number;
@@ -12,7 +17,7 @@ interface HeaderStates {
   messages: string[];
 }
 
-export class Header extends PureComponent<HeaderProps, HeaderStates> {
+export class Header extends React.PureComponent<HeaderProps, HeaderStates> {
   constructor(props: HeaderProps) {
     super(props);
 
@@ -20,8 +25,8 @@ export class Header extends PureComponent<HeaderProps, HeaderStates> {
       messageIndex: 0,
       messages: [
         'Welcome to CryptoKoon!',
-        'Try using Hash!',
-        'Or how about Encryption?',
+        'Try using a Hash!',
+        'Or how about an Encryption?',
         'Check out my GitHub!',
         '...',
         'Have fun :)',
@@ -40,15 +45,17 @@ export class Header extends PureComponent<HeaderProps, HeaderStates> {
     const currentMsg = messages[messageIndex];
 
     return (
-      <div className="d-flex flex-column mt-5">
-        <h1 className="text-center mb-5 text-success">CryptoKoon</h1>
+      <div className="header">
+        <Link replace to="/">
+          <img src={logo} alt="cryptokoon-logo" className="logo" />
+        </Link>
         <Typist
           key={messageIndex}
           avgTypingDelay={this.props.textDelay}
           className="text-center"
           onTypingDone={this.handleMessageUpdate}
         >
-          <span>{currentMsg}</span>
+          <span className="text">{currentMsg}</span>
           <Typist.Delay ms={1600} />
           <Typist.Backspace count={currentMsg.length} />
           <Typist.Delay ms={800} />
