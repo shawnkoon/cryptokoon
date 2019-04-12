@@ -4,6 +4,7 @@
 
 .Typist .Cursor {
   display: inline-block;
+  font-size: 1.4rem;
 }
 .Typist .Cursor--blinking {
   opacity: 1;
