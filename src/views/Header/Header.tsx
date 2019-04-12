@@ -1,5 +1,5 @@
 // Lib
-import React, { PureComponent } from 'react';
+import * as React from 'react';
 import Typist from 'react-typist';
 import 'styles/Typist.css';
 
@@ -16,7 +16,7 @@ interface HeaderStates {
   messages: string[];
 }
 
-export class Header extends PureComponent<HeaderProps, HeaderStates> {
+export class Header extends React.PureComponent<HeaderProps, HeaderStates> {
   constructor(props: HeaderProps) {
     super(props);
 
