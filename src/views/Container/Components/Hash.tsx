@@ -1,7 +1,6 @@
 // Lib
 import * as React from 'react';
 import * as crypto from 'crypto';
-import { string } from 'prop-types';
 
 interface HashMap {
   [hash: string]: string;
