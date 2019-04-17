@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
 // App
-import './styles/bootstrap4-neon-glow.css';
+import './styles/bootstrap4-neon-glow.scss';
 import App from './views/App';
 import * as serviceWorker from './misc/serviceWorker';
 

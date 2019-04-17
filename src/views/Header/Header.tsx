@@ -1,7 +1,7 @@
 // Lib
 import * as React from 'react';
 import Typist from 'react-typist';
-import 'styles/Typist.css';
+import 'styles/Typist.scss';
 import { Link } from 'react-router-dom';
 
 // App
