@@ -2,13 +2,16 @@
 import * as React from 'react';
 import * as crypto from 'crypto';
 
+// App
+import 'styles/Hash.scss';
+
 interface HashMap {
   [hash: string]: string;
 }
 
 interface HashState {
   searchTerm: string;
-  hashedMap: HashMap | undefined;
+  hashedMap?: HashMap;
 }
 
 export class Hash extends React.Component<{}, HashState> {
@@ -48,7 +51,7 @@ export class Hash extends React.Component<{}, HashState> {
     const { searchTerm, hashedMap } = this.state;
 
     return (
-      <>
+      <div className="hash-container">
         <form className="form-inline">
           <label className="sr-only" htmlFor="inlineFormInputGroup">
             Example Text
@@ -93,7 +96,7 @@ export class Hash extends React.Component<{}, HashState> {
             </tbody>
           </table>
         )}
-      </>
+      </div>
     );
   }
 }

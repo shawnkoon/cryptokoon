@@ -35,6 +35,7 @@
   ],
   "devDependencies": {
     "@types/react-router-dom": "^4.3.2",
+    "@types/react-typist": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^1.6.0",
     "@typescript-eslint/parser": "^1.6.0",
     "eslint-config-prettier": "^4.1.0",
