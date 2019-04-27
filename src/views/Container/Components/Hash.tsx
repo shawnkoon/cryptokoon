@@ -14,12 +14,15 @@ interface HashState {
   hashedMap?: HashMap;
 }
 
-export class Hash extends React.Component<{}, HashState> {
+// eslint-disable-next-line
+interface HashProps {}
+
+export class Hash extends React.Component<HashProps, HashState> {
   // Some reason, getHashes() function returns unsupported algos as well
   private supportedAlgos = ['sha1', 'sha224', 'sha256', 'md5', 'rmd160'];
   private hashes: string[];
 
-  constructor(props: {}) {
+  constructor(props: HashProps) {
     super(props);
     this.hashes = crypto.getHashes().filter(h => this.supportedAlgos.includes(h.toLowerCase()));
 
