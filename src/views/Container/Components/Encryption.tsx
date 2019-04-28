@@ -7,9 +7,9 @@ import 'styles/Encryption.scss';
 
 interface EncryptionState {
   algorithm?: string;
-  secretKey?: string;
-  initialVector?: string;
+  secretKey: string;
   text?: string;
+  encryptedText?: string;
 }
 
 // eslint-disable-next-line
@@ -20,25 +20,39 @@ export class Encryption extends React.PureComponent<EncryptionProps, EncryptionS
 
   constructor(props: EncryptionProps) {
     super(props);
-    this.state = {};
+    this.state = {
+      secretKey: this.getRandomHex(32),
+    };
     this.encrpytions = crypto.getCiphers();
   }
 
   private isSubmitDisabled(): boolean {
-    const { algorithm, secretKey, initialVector, text } = this.state;
+    const { algorithm, secretKey, text } = this.state;
 
-    return !algorithm || !secretKey || !initialVector || !text;
+    return !algorithm || !secretKey || !text;
+  }
+
+  private getRandomHex(byteLength: number): string {
+    return crypto.randomBytes(byteLength).toString('hex');
   }
 
   private handleSubmit = (e: any): void => {
     e && e.preventDefault();
 
-    console.log('this --', this);
+    this.setState({ encryptedText: this.encrypt() });
   };
 
-  render() {
-    // http://vancelucas.com/blog/stronger-encryption-and-decryption-in-node-js/ <- check this for algorithms
+  public encrypt(): string {
+    // https://lollyrock.com/posts/nodejs-encryption/
+    const { algorithm, secretKey, text } = this.state;
+    const cipher = crypto.createCipher(algorithm!, secretKey);
+    let crypted = cipher.update(text!, 'utf8', 'hex');
+    crypted += cipher.final('hex');
 
+    return crypted;
+  }
+
+  render() {
     return (
       <div className="encryption-container">
         <form className="form">
@@ -62,29 +76,26 @@ export class Encryption extends React.PureComponent<EncryptionProps, EncryptionS
               ))}
             </select>
           </div>
-          <div className="form-group">
-            <label className="ml-1" htmlFor="encryptionKey">
+          <div className="input-group mb-2">
+            <label className="ml-1 d-block" style={{ width: '100%' }} htmlFor="encryptionKey">
               Secret Key
             </label>
             <input
+              disabled
               id="encryptionKey"
-              type="password"
+              type="text"
               className="form-control"
-              placeholder="Enter a secret encryption key."
-              onChange={e => this.setState({ secretKey: e.target.value })}
+              value={this.state.secretKey}
             />
-          </div>
-          <div className="form-group">
-            <label className="ml-1" htmlFor="initialVector">
-              Initial Vector
-            </label>
-            <input
-              id="initialVector"
-              type="password"
-              className="form-control"
-              placeholder="Enter an initial vector value."
-              onChange={e => this.setState({ initialVector: e.target.value })}
-            />
+            <div className="input-group-append">
+              <button
+                className="btn btn-outline-primary"
+                type="button"
+                onClick={() => this.setState({ secretKey: this.getRandomHex(32) })}
+              >
+                <span className="fas fa-sync-alt" />
+              </button>
+            </div>
           </div>
           <div className="form-group">
             <label className="ml-1" htmlFor="encryptionText">
@@ -107,6 +118,13 @@ export class Encryption extends React.PureComponent<EncryptionProps, EncryptionS
             Encrypt
           </button>
         </form>
+        {this.state.encryptedText && (
+          <div className="card border-primary mt-5 text-center form">
+            <div className="card-body">
+              <p className="card-text">{this.state.encryptedText}</p>
+            </div>
+          </div>
+        )}
       </div>
     );
   }

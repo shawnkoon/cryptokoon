@@ -24,7 +24,9 @@ export class Hash extends React.Component<HashProps, HashState> {
 
   constructor(props: HashProps) {
     super(props);
-    this.hashes = crypto.getHashes().filter(h => this.supportedAlgos.includes(h.toLowerCase()));
+    this.hashes = crypto
+      .getHashes()
+      .filter(h => this.supportedAlgos.includes(h.toLowerCase()));
 
     this.state = {
       searchTerm: '',
