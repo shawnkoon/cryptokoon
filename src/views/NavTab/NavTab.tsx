@@ -24,6 +24,16 @@ export class NavTab extends React.PureComponent {
             Decryption
           </NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink replace className="nav-link" to="/encode" activeClassName="active">
+            Encode
+          </NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink replace className="nav-link" to="/decode" activeClassName="active">
+            Decode
+          </NavLink>
+        </li>
       </ul>
     );
   }
