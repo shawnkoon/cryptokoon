@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/cryptokoon/static/css/main.5f8fff8e.chunk.css",
+    "main.js": "/cryptokoon/static/js/main.eec66818.chunk.js",
+    "main.js.map": "/cryptokoon/static/js/main.eec66818.chunk.js.map",
+    "runtime-main.js": "/cryptokoon/static/js/runtime-main.20d9aa36.js",
+    "runtime-main.js.map": "/cryptokoon/static/js/runtime-main.20d9aa36.js.map",
+    "static/js/2.1b0d1feb.chunk.js": "/cryptokoon/static/js/2.1b0d1feb.chunk.js",
+    "static/js/2.1b0d1feb.chunk.js.map": "/cryptokoon/static/js/2.1b0d1feb.chunk.js.map",
+    "index.html": "/cryptokoon/index.html",
+    "precache-manifest.d6713c3e44e7991d193053b6a9b31e40.js": "/cryptokoon/precache-manifest.d6713c3e44e7991d193053b6a9b31e40.js",
+    "service-worker.js": "/cryptokoon/service-worker.js",
+    "static/css/main.5f8fff8e.chunk.css.map": "/cryptokoon/static/css/main.5f8fff8e.chunk.css.map",
+    "static/js/2.1b0d1feb.chunk.js.LICENSE.txt": "/cryptokoon/static/js/2.1b0d1feb.chunk.js.LICENSE.txt",
+    "static/media/logo.png": "/cryptokoon/static/media/logo.78e7d370.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.20d9aa36.js",
+    "static/js/2.1b0d1feb.chunk.js",
+    "static/css/main.5f8fff8e.chunk.css",
+    "static/js/main.eec66818.chunk.js"
+  ]
+}
