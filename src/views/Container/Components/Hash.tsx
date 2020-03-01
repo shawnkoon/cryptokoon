@@ -36,7 +36,7 @@ export class Hash extends React.Component<HashProps, HashState> {
 
   public handleSearch = (e: any): void => {
     e.preventDefault();
-    let hashedMap = this.state.hashedMap || {};
+    const hashedMap = this.state.hashedMap || {};
 
     this.hashes.forEach(h => {
       hashedMap[h] = this.getHashedValue(h, this.state.searchTerm);
